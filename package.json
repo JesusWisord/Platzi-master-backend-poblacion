@@ -1,0 +1,19 @@
+{
+  "name": "backend_proyecto_platzi",
+  "version": "1.0.0",
+  "description": "Backend para construcción de API para consultar base de datos en MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.5.7"
+  }
+}
