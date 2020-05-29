@@ -169,21 +169,6 @@ const init = async () => {
     }
   })
 
-  // Consultar continentes con los países
-  server.route({
-    method: 'GET',
-    path: '/continent_countries/{id}',
-    handler: async (request, h) => {
-      try {
-        // Eliminar enviando primero el id
-        const continentCountries = await Continents.findOne(request.params.id);
-        return h.response(continentCountries).code(200);
-      } catch (error) {
-        return h.response(error).code(500);
-      }
-    }
-  })
-
   await server.start();
   console.log(`Servidor lanzado en: ${server.info.uri}`);
 }
