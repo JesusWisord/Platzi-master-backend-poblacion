@@ -1,14 +1,19 @@
-'use strict'
+"use strict";
 
-function getAllData (req, h) {
-  return ('Data')
+function getCountry(req, h) {
+  console.log(req.mongo.db);
+  return "list of country";
 }
 
-function createCountry (req, h) {
-  console.log(req.payload)
-  return ('País creado')
+function getContinent(req, h) {
+  return "List of continent";
 }
 
+function notFound(req, h) {
+  return "Error 404";
+}
 module.exports = {
-  createCountry: createCountry
-}
+  getCountry: getCountry,
+  getContinent: getContinent,
+  notFound: notFound,
+};

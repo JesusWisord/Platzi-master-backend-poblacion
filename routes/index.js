@@ -1,11 +1,22 @@
-const fs = require('fs');
+"use strict";
 
-let routes = [];
+const Joi = require("@hapi/joi");
+const country = require("../controller/country");
 
-fs.readdirSync(__dirname)
-  .filter(file => file != 'index.js')
-  .forEach(file => {
-    routes = routes.concat(require(`./${file}`))
-  });
-
-module.exports = routes;
+module.exports = [
+  {
+    method: "GET",
+    path: "/country",
+    handler: country.getCountry,
+  },
+  {
+    method: "GET",
+    path: "/continent",
+    handler: country.getContinent,
+  },
+  {
+    method: "*",
+    path: "/{any*}",
+    handler: country.notFound,
+  },
+];
