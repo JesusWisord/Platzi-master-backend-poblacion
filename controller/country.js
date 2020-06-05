@@ -2,7 +2,7 @@
 
 const Countries = require("../models/Countries");
 
-async function addCountry (request, h) {
+async function addCountry(request, h) {
   try {
     // Obtener el objeto enviado
     const countries = new Countries(request.payload);
@@ -24,7 +24,7 @@ async function getCountries(request, h) {
   }
 }
 
-async function getCountry (request, h){
+async function getCountry(request, h) {
   try {
     // Buscar por id
     const country = await Countries.findById(request.params.id);
@@ -36,17 +36,21 @@ async function getCountry (request, h){
   }
 }
 
-async function editCountry (request, h) {
+async function editCountry(request, h) {
   try {
     // Actualizar enviando primero el id, después el contenido y al final mostrar el objeto actualizado
-    const updateCountry = await Countries.findByIdAndUpdate(request.params.id, request.payload, { new: true });
+    const updateCountry = await Countries.findByIdAndUpdate(
+      request.params.id,
+      request.payload,
+      { new: true }
+    );
     return h.response(updateCountry).code(200);
   } catch (error) {
     return h.response(error).code(500);
   }
 }
 
-async function deleteCountry (request, h){
+async function deleteCountry(request, h) {
   try {
     // Eliminar enviando primero el id
     const deleteCountry = await Countries.findByIdAndDelete(request.params.id);
@@ -56,14 +60,10 @@ async function deleteCountry (request, h){
   }
 }
 
-function notFound(req, h) {
-  return "Error 404";
-}
 module.exports = {
   addCountry: addCountry,
   getCountries: getCountries,
   getCountry: getCountry,
   editCountry: editCountry,
   deleteCountry: deleteCountry,
-  notFound: notFound,
 };

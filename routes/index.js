@@ -1,13 +1,9 @@
 "use strict";
 
-const fs = require('fs');
+const continent = require("./continentRouter");
+const country = require("./countryRouter");
+const error = require("./error");
 
-let routes = [];
-
-fs.readdirSync(__dirname)
-  .filter(file => file != 'index.js')
-  .forEach(file => {
-    routes = routes.concat(require(`./${file}`))
-  });
+let routes = [...continent, ...country, ...error];
 
 module.exports = routes;

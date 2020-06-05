@@ -29,8 +29,6 @@ async function getContinent(request, h) {
   try {
     // Buscar por id
     const continent = await Continents.findById(request.params.id);
-    // await Continents.findOne({year: 2020})
-    // await Continents.findOne({ year: 2020 }, { continent: 1 })
     return h.response(continent).code(200);
   } catch (error) {
     return h.response(error).code(500);

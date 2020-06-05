@@ -6,7 +6,7 @@ module.exports = [
   // Agregar los países
   {
     method: "POST",
-    path: "/addcountry",
+    path: "/countries",
     handler: country.addCountry,
   },
   // Listar los países
@@ -18,26 +18,19 @@ module.exports = [
   // Buscar un país por su id
   {
     method: "GET",
-    path: "/country/{id}",
+    path: "/countries/{id}",
     handler: country.getCountry,
   },
-
   // Editar un país por su id
   {
     method: "PUT",
-    path: "/country/{id}",
+    path: "/countries/{id}",
     handler: country.editCountry,
   },
-
   // Eliminar un país por su id
   {
     method: "DELETE",
-    path: "/country/{id}",
+    path: "/countries/{id}",
     handler: country.deleteCountry,
-  },
-  {
-    method: "*",
-    path: "/{any*}",
-    handler: country.notFound,
   },
 ];

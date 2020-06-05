@@ -6,7 +6,7 @@ module.exports = [
   // Agregar el continente
   {
     method: "POST",
-    path: "/addcontinent",
+    path: "/continents",
     handler: continent.createContinent,
   },
   // Listar los continentes
@@ -18,24 +18,24 @@ module.exports = [
   // Buscar un continente por su id
   {
     method: "GET",
-    path: "/continent/{id}",
+    path: "/continents/{id}",
     handler: continent.getContinent,
   },
   // Editar un continente por su id
   {
     method: "PUT",
-    path: "/continent/{id}",
+    path: "/continents/{id}",
     handler: continent.editContinent,
+  },
+  // Eliminar un continente por su id
+  {
+    method: "DELETE",
+    path: "/continents/{id}",
+    handler: continent.deleteContinent,
   },
   {
     method: "GET",
     path: "/continent_countries/{continent}",
     handler: continent.query,
-  },
-  // Eliminar un continente por su id
-  {
-    method: "DELETE",
-    path: "/continent/{id}",
-    handler: continent.deleteContinent,
   },
 ];
