@@ -1,7 +1,7 @@
 "use strict";
 
-const continent = require("./continentRouter");
-const country = require("./countryRouter");
+const continent = require("./continent");
+const country = require("./country");
 const error = require("./error");
 
 let routes = [...continent, ...country, ...error];
