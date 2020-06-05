@@ -173,4 +173,13 @@ const init = async () => {
   console.log(`Servidor lanzado en: ${server.info.uri}`);
 }
 
+// lo mando cuando una promesa causa error
+process.on("unhandledRejection", (error) => {
+  console.error("unhandleRejection", error.message, error);
+});
+
+process.on("uncaughtException", (error) => {
+  console.error("uncaughtException", error.message, error);
+});
+
 init();
